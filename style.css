@@ -1,0 +1,255 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    min-height: 100%;
+}
+
+body {
+    background: linear-gradient(160deg, rgb(255, 166, 0), rgb(255, 195, 30));
+    color: #202020;
+    font-family: Arial, Helvetica, sans-serif;
+    min-height: 100%;
+    
+}
+
+header {
+    padding: 5vh 0;
+    text-align: center;
+}
+
+form{
+    
+    width: 90%;
+    margin: auto;
+    text-align: center;
+    font-size: 40px;    
+}
+
+form .input-field{
+    display: flex;
+    justify-content: center;
+    font-size: 40px;
+}
+
+form.badInput {
+    animation: bounce 0.3s ease-in-out 1 forwards;
+} 
+
+form input{
+    order: -1;
+    margin: 0;
+    width: 200px;
+    border-radius: 7px 0 0 7px;
+    border: none;
+    font-size: 18px;
+    padding: 5px; 
+}
+
+@keyframes bounce{
+    0% {transform: translateY(0%);}
+    20% {transform: translateY(-20%);}
+    60% {transform: translateY(18%);}
+    80% {transform: translateY(-15%);}
+    100% {transform: translateY(0%);}   
+}
+
+form .input-select{
+    border: none;
+    border-left: 1px solid rgba(230, 230, 230, 0.7);
+    padding: 0 5px 0 10px;
+}
+
+
+form button {
+    order: 1;
+    font-size: 20px;
+    padding: 5px;
+    width: 35px;
+    border-radius: 0 7px 7px 0;
+    border: none;
+    cursor: pointer;
+}
+
+form button:hover{
+    background-color: white;
+    color: rgb(255, 145, 0);
+    border: 2px solid #202020;
+    border-left: none;
+}
+
+input:focus, button:focus {
+    border: none;
+    outline: none;
+}
+
+.input-select:focus{
+    border: none;
+    outline: none;
+    border-left: 1px solid rgba(230, 230, 230, 0.7);
+}
+
+form button:hover + input{
+    border: 2px solid #202020;
+    border-right: none;
+
+}
+
+form button:hover ~ .input-select{
+    border: 2px solid #202020;
+    border-right:none;
+    border-left: none;
+}
+
+
+select#filter-options {
+    width: 100px;
+    float: left;
+    margin: 10px 0;
+}
+
+.container {
+
+    padding: 0 5%;
+    margin: 5vh auto;
+    max-width: 1500px;
+    
+}
+
+.todo-list {
+    font-size: 20px
+}
+
+.list-item-wrapper {
+    
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    border: 1px solid transparent;
+    padding: 8px 0;
+    border-bottom: 1px solid black;
+    margin-bottom: 3px;  
+    animation: comeIn 0.4s ease-in-out forwards;
+    color: #202020;
+
+}
+
+
+.list-item-wrapper.delete{
+    border-bottom: 1px solid rgba(228, 15, 15, 0.979);
+    color: rgba(228, 15, 15, 0.979);
+} 
+
+.list-item-wrapper.done{
+    border-bottom: 1px solid green;
+    color: green;
+    text-decoration: line-through;
+} 
+
+
+.list-item{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-decoration: inherit;
+    line-height: 30px;
+    width: 90%;
+}
+
+
+.list-item span {
+  /* text-decoration: inherit; */
+  float: right;
+  width: 270px;
+}
+
+
+@keyframes comeIn{
+    0% {transform: translateY(50vh);}
+    100% {transform: translateX(0);}
+}
+
+@keyframes goOut{
+    0% {transform: translatex(0);}
+    100% {transform: translateX(150%);}
+}
+
+.btn-wrapper button{   
+    font-size: 20px;
+    height: 30px;
+    width: 30px;
+    text-align: center;
+    float: right;
+    border: none;
+    border-radius: 2px;
+}  
+
+
+.btn-wrapper button:hover {
+    cursor: pointer;
+    background: transparent;
+    font-size: 1.2rem;
+}
+
+.btn-wrapper button:first-child{
+    margin-left: 2px;
+}
+
+.btn-wrapper button:first-child.done {   
+    color: green;
+}
+
+.btn-wrapper button:first-child:hover {   
+    color: green;
+}
+
+.btn-wrapper button:first-child.done:hover {   
+    color: red;
+}
+
+.btn-wrapper button:last-child:hover {
+    color: rgba(228, 15, 15, 0.979);
+}
+
+button.disabled{
+    pointer-events: none;
+    opacity: 0.5;
+}
+
+@media screen and (max-width: 710px){
+    .list-item-wrapper{
+        flex-direction: row;
+    }
+
+    .list-item {
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: space-between;
+    }
+    
+    .btn-wrapper {
+        width: 30px;
+    }
+
+    .btn-wrapper button:last-child{
+        margin: 2px 0 0 0;
+    }
+
+    
+}
+
+
+@media screen and (max-width: 520px){
+    
+    form input{
+        width: 50%;
+    }
+
+    form .input-select{
+        padding:0;
+    }
+    
+}
